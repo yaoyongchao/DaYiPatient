@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/transparent"
+    android:layout_height="match_parent">
+
+    <!--<com.fh.baselib.widget.DYLoadingView
+        android:id="@+id/dv1"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:color1="#FF00EEEE"
+        app:color2="#FFFF00"
+        app:radius1="12dp"
+        app:radius2="12dp"
+        app:gap="20dp"
+        app:mixColor = "@color/transparent"
+        app:duration = "800"
+        app:pauseDuration = "1"
+        android:visibility="visible"
+        />-->
+
+    <!--<ImageView-->
+        <!--android:id="@+id/img"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:src="@drawable/ic_arrow_back"-->
+        <!--android:visibility="gone"-->
+        <!--/>-->
+
+    <LinearLayout
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/bg_fillet8_selector"
+        >
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateDrawable="@drawable/my_progressbar"
+            android:indeterminateBehavior="repeat"
+            android:indeterminateDuration="1000"
+            android:layout_centerInParent="true"
+            />
+
+
+        <TextView
+            android:id="@+id/tv_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="正在加载中..."
+            android:layout_marginTop="12dp"
+            />
+    </LinearLayout>
+
+
+
+</LinearLayout>

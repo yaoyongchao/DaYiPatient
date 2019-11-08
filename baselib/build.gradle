@@ -1,0 +1,133 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
+android {
+    compileSdkVersion 28
+
+
+    defaultConfig {
+        minSdkVersion 18
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha09'
+    implementation 'androidx.core:core-ktx:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    api 'com.google.android.material:material:1.1.0-alpha09'
+    api 'com.android.support:multidex:1.0.3'
+
+    //SmartRefreshLayout：下拉刷新， 上拉加载更多  https://github.com/scwang90/SmartRefreshLayout
+    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
+
+    //Logger日志
+    api 'com.orhanobut:logger:2.2.0'
+
+    //RxJava2.0
+    api 'io.reactivex.rxjava2:rxjava:2.2.11'
+    api 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    api 'io.reactivex.rxjava2:rxkotlin:2.4.0'
+
+    // OkHttp3
+    api 'com.squareup.okhttp3:okhttp:3.12.1'
+    api 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+
+    //retrofit相关
+    api 'com.squareup.retrofit2:retrofit:2.5.0'
+    api 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
+    api 'com.squareup.retrofit2:converter-gson:2.5.0'
+
+    //https://github.com/XiaoQiWen/RxBus2
+    api 'lib.gorden.rxbus2:rxbus:2.0.1'
+
+    //    图片轮播， 来自：https://github.com/bingoogolapple/BGABanner-Android
+    api 'cn.bingoogolapple:bga-banner:2.2.4'
+
+    //RxLifecycle
+    api 'com.trello.rxlifecycle3:rxlifecycle:3.0.0'
+    api 'com.trello.rxlifecycle3:rxlifecycle-components:3.0.0'
+
+    //    api 'com.trello.rxlifecycle3:rxlifecycle-kotlin:3.0.0'
+    api 'com.trello.rxlifecycle3:rxlifecycle-android-lifecycle-kotlin:3.0.0'
+
+    //https://github.com/yanzhenjie/AndPermission
+
+    //https://www.jianshu.com/p/7e231fc25fb3
+
+    //    api 'com.yanzhenjie.permission:x:2.0.1'
+
+    //    api 'com.github.tbruyelle:rxpermissions:0.10.2'
+    api 'com.apeng:EsayPermissions:1.0.0'
+    api 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+
+    // 修改状态栏颜色   https://github.com/niorgai/StatusBarCompat
+    api('com.github.niorgai:StatusBarCompat:2.3.3', {
+        exclude group: 'androidx.appcompat:appcompat'
+        exclude group: 'com.google.android.material:material'
+    })
+
+    //与H5加载沟通框架 https://github.com/lzyzsd/JsBridge
+    api 'com.github.lzyzsd:jsbridge:1.0.4'
+    implementation files('libs/pinyin4j-2.5.0.jar')
+
+    //生二维码  https://github.com/bertsir/zBarLibary
+    api 'cn.bertsir.zbarLibary:zbarlibary:latest.release'
+    implementation project(path: ':thirdpartylib')
+
+    //Umeng 统计
+
+    //    implementation  'com.umeng.umsdk:analytics:8.1.3'
+
+    //    implementation  'com.umeng.umsdk:common:2.1.0'
+
+    //    implementation  'com.umeng.umsdk:utdid:1.1.5.3'
+
+    //    //Umeng 分享
+
+    //    api 'com.umeng.sdk:share-core:latest.integration'
+
+    ////    api 'com.umeng.sdk:share-qq:latest.integration'
+
+    ////    api 'com.umeng.sdk:share-wechat:latest.integration'
+
+    ////    api 'com.umeng.sdk:share-sina:latest.integration'
+
+    ////分享面板
+
+    //    api 'com.umeng.sdk:shareboard-widget:latest.integration'
+    //ARouter
+    implementation 'com.alibaba:arouter-api:1.5.0'
+    kapt 'com.alibaba:arouter-compiler:1.2.2'
+}
